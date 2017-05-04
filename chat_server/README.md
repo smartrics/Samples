@@ -35,4 +35,4 @@ SEND <room_name> <message>\n
 
 ## Important notes
 
-* The server needs to scale to 100 concurrent connections and 100 rooms. Choose the io packages you use *appropriately* for that.
+* The server needs to scale to 100 concurrent connections and 100 rooms. 

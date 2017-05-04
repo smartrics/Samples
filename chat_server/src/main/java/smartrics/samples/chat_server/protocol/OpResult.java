@@ -1,8 +1,8 @@
-package smartrics.samples.chat_server;
+package smartrics.samples.chat_server.protocol;
 
 import java.util.Optional;
 
-import static smartrics.samples.chat_server.Validation.checkNotNull;
+import static smartrics.samples.chat_server.util.Validation.checkNotNull;
 
 public class OpResult {
 

@@ -1,4 +1,4 @@
-package smartrics.samples.chat_server;
+package smartrics.samples.chat_server.server;
 
 
 public interface Server {

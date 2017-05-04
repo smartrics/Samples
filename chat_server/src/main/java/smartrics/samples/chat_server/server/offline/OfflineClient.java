@@ -1,11 +1,10 @@
-package smartrics.samples.chat_server.offline;
+package smartrics.samples.chat_server.server.offline;
 
-import smartrics.samples.chat_server.Client;
-import smartrics.samples.chat_server.Receiver;
+import smartrics.samples.chat_server.server.Client;
+import smartrics.samples.chat_server.server.Receiver;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 
 public class OfflineClient implements Client {
@@ -31,7 +30,7 @@ public class OfflineClient implements Client {
 
     @Override
     public void receive(String room, String message) {
-        receiverList.forEach(receiver -> receiver.newMessage(room, message));
+        receiverList.forEach(receiver -> receiver.onNewMessage(room, message));
     }
 
     @Override

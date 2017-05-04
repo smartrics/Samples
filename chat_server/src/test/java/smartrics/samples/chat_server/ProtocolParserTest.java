@@ -2,6 +2,9 @@ package smartrics.samples.chat_server;
 
 import org.junit.Before;
 import org.junit.Test;
+import smartrics.samples.chat_server.protocol.Command;
+import smartrics.samples.chat_server.protocol.ProtocolParser;
+import smartrics.samples.chat_server.protocol.Send;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -18,18 +21,18 @@ public class ProtocolParserTest {
 
     @Test
     public void parseJoin() {
-        Protocol.Command command = parser.parse("join foo");
+        Command command = parser.parse("join foo");
 
         assertThat(command.getClass().getSimpleName(), is("Join"));
         assertThat(command.getRoomName(), is("foo"));
     }
     @Test
     public void parseSend() {
-        Protocol.Command command = parser.parse("send foo bar");
+        Command command = parser.parse("send foo bar");
 
         assertThat(command.getClass().getSimpleName(), is("Send"));
         assertThat(command.getRoomName(), is("foo"));
-        assertThat(((Protocol.Send)command).getMessage(), is("bar"));
+        assertThat(((Send)command).getMessage(), is("bar"));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -44,7 +47,7 @@ public class ProtocolParserTest {
 
     @Test
     public void sendWithoutMessageHasEmptyMessage() {
-        Protocol.Command command = parser.parse("send foo");
-        assertThat(((Protocol.Send)command).getMessage(), is(""));
+        Command command = parser.parse("send foo");
+        assertThat(((Send)command).getMessage(), is(""));
     }
 }
